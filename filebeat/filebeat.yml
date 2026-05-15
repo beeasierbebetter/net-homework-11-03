@@ -1,0 +1,16 @@
+filebeat.inputs:
+  - type: filestream
+    id: nginx-filestream-id
+    enabled: true
+    paths:
+      - /var/log/nginx/nginx_access.log
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+
+setup.kibana:
+  hosts: "http://kibana:5601"
+
+setup.tamplate.enabled: true
+
+logging.level: info
